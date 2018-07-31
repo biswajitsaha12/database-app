@@ -1,0 +1,21 @@
+html
+	head 
+		link(href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', rel='stylesheet')
+		link(href='/app.css', rel='stylesheet')
+		
+		body
+		
+			div.container.box-top
+				div.row.text-center
+					h1.l-title Reset Password
+					p We can help you reset your password using your username or the email address linked to your account.
+			
+					form.login(action="/login"  method="get")
+						div.form-group
+							label(for="reset_pass") Email or Username
+								input.form-control#reset_pass(type="text"  placeholder="Enter Email" name="reset_pass" required)
+						button.btn.btn-primary.btn-login(type="submit" name="submit" value="submit") Reset Password
+				
+			hr
+			div.row.text-center.box-bottom Copyright &copy 2018 BISWAJIT SAHA All rights reserved.
+								

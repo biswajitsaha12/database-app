@@ -1,0 +1,74 @@
+doctype html
+html
+	link(rel="stylesheet" href="/bootstrap.min.css")
+	link(rel="stylesheet" href="/app.css")
+	script(src="/jquery.min.js")
+	script(src= "./bootstrap.min.js")
+	script(src="/ui-nav.js")
+	script(src="/ui-load.js")
+	script(src="/ui-jp.config.js")
+	script(src="/ui-jp.js")
+	script(src="/ui-toggle.js")
+	script(src="/ui-client.js")
+	body
+		div.container-fluid
+			include header.pug
+			
+			div.row(style="height:540px")
+				include leftbar.pug
+				div.col-sm-8(style="background-color: #f0f3f4;height:100%")
+					div.row(style="background-color: #F0F8FF;")
+						div.row
+							div.col-sm-12
+								h2 Profile Details
+						div.row
+							form.login(action="/upload"  method="post" enctype="multipart/form-data")
+								input(type="file", name=id)
+								button.btn.btn-primary.btn-login(type="submit") Upload
+						div.row
+							div.col-sm-1
+
+							div.col-sm-5
+								h4 Name:- #{name} 
+								h4 Username:- #{id}
+							div.col-sm-6
+								h4 Email:- #{email} 
+								h4 Mobile No:- #{mobile}
+
+					div.row(style="margin:1px transparent ;height:400px;background-color: #e4eaec;")
+						div.col-sm-12
+							h3 Reports
+							div Customer
+							div.progress
+								div.progress-bar(role="progressbar" style="width:5%;background-color:purple" aria-valuemax="100" aria-valuenow="60" aria-valuemin="0")
+							div Online Products
+							div.progress
+								div.progress-bar.progress-bar-info(role="progressbar" style="width:70%" aria-valuemax="100" aria-valuenow="60" aria-valuemin="0")
+							div Online Sale
+							div.progress
+								div.progress-bar.progress-bar-warning(role="progressbar" style="width:30%" aria-valuemax="100" aria-valuenow="60" aria-valuemin="0")
+
+					include footer.pug
+				include notificationbar.pug		
+
+
+
+				
+
+
+
+
+
+					
+						
+
+
+
+							
+
+					
+
+
+
+
+

@@ -1,0 +1,71 @@
+doctype html
+html
+	link(rel="stylesheet" href="/bootstrap.min.css")
+	link(rel="stylesheet" href="/app.css")
+	script(src="/jquery.min.js")
+	script(src= "/bootstrap.min.js")
+	cript(src="/ui-nav.js")
+	script(src="/ui-load.js")
+	script(src="/ui-jp.config.js")
+	script(src="/ui-jp.js")
+	script(src="/ui-toggle.js")
+	script(src="/ui-client.js")
+  	
+
+	body
+		div.container-fluid
+			include header.pug
+			
+			div.row.pug(style="height:600px" )
+				include eftbar.pug
+				div.col-sm-10(style="background-color: #f0f3f4;height:100%")
+					div.row
+						div.col-sm-12(style="border-bottom: 1px solid #dee5e7;margin-left:0px;background-color:#F0F8FF;") 
+							h3(style="padding-top:5px;margin-top:0px")   Customer Details
+					div.row(style="margin:20px ;padding:10px;height:500px")
+						div.row(style="background-color:red ")
+							div.col-sm-12
+								h4 Update  Customer Details
+						div.row(style="background-color:green ;padding:20px")
+							div.col-sm-12
+								form.form-horizontal( action="/updateCustomer" method= "post" )
+									input(type="hidden" name='customer_id' value=id )
+									div.row.form-group(style="margin-top:40px ")
+										label.col-sm-2.text-center(for="customerName") Customer Name
+											sup(style="color:red") *
+										div.col-sm-10
+											input.form-control#customerName(type="text" name="customerName" value = name)
+									div.row.form-group(style="margin-top:40px ")
+										
+											label.col-sm-2.text-center(for="email") Customer Email
+												sup(style="color:red") *
+											div.col-sm-4
+												input.form-control#email(type="email" name="email" value=email)
+										
+											label.col-sm-2.text-center(for="mobile") Mobile
+												sup(style="color:red") *
+											div.col-sm-4
+												input.form-control#email(type="number" name="mobile" value=mobile)
+												
+									div.row.form-group(style="margin-top:40px ")
+									
+										label.col-sm-2.text-center(for="address") Address
+											sup(style="color:red") *
+										div.col-sm-4
+											textarea.form-control#address( name="address" rows="4" value=address)
+								
+										label.col-sm-2.text-center(for="des") Customer Description
+											sup(style="color:red") *
+										div.col-sm-4
+											textarea.form-control#des( name="des" rows="4" value=customer_description)
+									
+									div.row
+
+										hr
+										div.col-sm-2
+										div.col-sm-10
+											a(href="home")
+												button.btn.btn-primary(type="button" onclick="home") Cancel
+
+											button.btn.btn-primary(type="submit" name="submit" ) Submit
+					include footer.pug

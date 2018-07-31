@@ -1,0 +1,110 @@
+doctype html
+html
+	
+	link(rel="stylesheet" href="/bootstrap.min.css")
+	link(rel="stylesheet" href="/app.css")
+	link(rel="stylesheet" href="/font.css")
+	script(src="/jquery.min.js")
+	script(src= "/bootstrap.min.js")
+	script(src="/ui-nav.js")
+	script(src="/ui-load.js")
+	script(src="/ui-jp.config.js")
+	script(src="/ui-jp.js")
+	script(src="/ui-toggle.js")
+	script(src="/ui-client.js")
+		
+	body
+		div.container-fluid
+			include header.pug
+			
+			div.row(style="height:700px" )
+				include leftbar.pug
+					
+				div.col-sm-8(style="background-color: #f0f3f4;height:100%")
+					div.row
+						div.col-sm-12.text-center(style="border-bottom: 1px solid #dee5e7;margin-left:0px;background-color:#F0F8FF;") 
+							h3(style="padding-top:5px;margin-top:0px")  Dashboard
+					div.row(style="margin-left:15px")
+						div.row
+							div.col-sm-6
+								div.row
+									div.col-sm-5.text-center(style="background-color:white;margin:15px 15px 15px 15px;") 
+										h4=total
+										br
+										p Total Customers
+									div.col-sm-5.text-center(style="background-color:white;margin:15px 15px 15px 20px ;") 
+										h4 0
+										br
+										p Uploads
+								div.row
+
+									div.col-sm-5.text-center(style="background-color:white;margin:15px 15px 15px 15px;") 
+										h4 112
+										br
+										p Comments
+									div.col-sm-5.text-center(style="background-color:white;margin:15px 15px 15px 20px;") 
+										h4 209
+										br
+										p Feeds
+
+								div.row
+
+									div.col-sm-11.text-center(style="background-color:white;margin:15px;") 
+										h4 301
+										br
+										p New Application
+							div.col-sm-6(style="padding-left:0;")
+								div.row
+
+									div.col-sm-11(style="background-color:white;margin:15px 15px 15px 10px;height:327px") 
+
+										h4.text-center last Customer Added
+										br
+										table
+											tr
+												td Name:
+												td=customer_name
+											tr
+												td Email:
+												td=email
+											tr
+												td Mobile:
+												td=mobile
+											tr
+												td Address:
+												td=address
+												
+						div.row(style="background-color:white;margin:15px 15px 15px 0px;")
+								div.col-sm-12
+									h3 Reports
+									div customer
+									div.progress
+										div.progress-bar(role="progressbar" style="width:5%;background-color:purple" aria-valuemax="100" aria-valuenow="60" aria-valuemin="0")
+									div Online Tutorials
+									div.progress
+										div.progress-bar.progress-bar-info(role="progressbar" style="width:70%" aria-valuemax="100" aria-valuenow="60" aria-valuemin="0")
+									div Online Application
+									div.progress
+										div.progress-bar.progress-bar-warning(role="progressbar" style="width:30%" aria-valuemax="100" aria-valuenow="60" aria-valuemin="0")
+					include footer.pug
+				
+				include notificationbar.pug
+
+
+
+
+
+
+					
+						
+
+
+
+							
+
+					
+
+
+
+
+

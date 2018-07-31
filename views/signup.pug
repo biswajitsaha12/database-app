@@ -1,0 +1,65 @@
+doctype html
+
+html
+	head 
+		link(href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', rel='stylesheet')
+		link(href='/app.css', rel='stylesheet')
+		
+		
+		body
+		
+			div.container.box-top
+				div.row.text-center
+					h1.l-title TEST APP
+					i(style="color: red")=err
+				
+					
+					form.login(action="/signupform"  method="post")
+						div.form-group
+							label(for="name")
+								input.form-control#name(type="text"  placeholder="Enter Name" name="name" required)
+						div.form-group
+							label(for="username")
+								input.form-control#username(type="text"  placeholder="Enter username" name="username" required)
+								
+							
+						div.form-group
+							label(for="email")
+								input.form-control#email(type="email"  placeholder="Enter Email" name="email")
+						div.form-group
+							label(for="mobile")
+								input.form-control#mobile(type="text"  placeholder="Mobile Number" name="mobile")
+						div.form-group
+							label(for="birth_date")
+								input.form-control#birth_date(type="date"  placeholder="Enter D.O.B" name="birth_date")
+						div.form-group
+							label(for="password")
+								input.form-control#password(type="password"  placeholder=" Password" name="password" required)
+						div.form-group
+							label(for="c_password")
+								input.form-control#c_password(type="password"  placeholder=" Confirm Password" name="c_password" required)
+						div.row.checkbox
+							label
+								input.chkbox#chk(type="checkbox"   name="chk" required)
+									
+								p.chktext By signing up, you agree to our 
+									a(href="#")  Terms & Privacy Policy*.
+							
+				
+			
+						button.btn.btn-primary.btn-login(type="submit" name="submit" value="submit") Sign Up  
+					
+						
+						
+					
+				
+					
+					
+			div.container.box-mid
+				div.row.text-center Have an account? 
+					a(href="login") Log in
+				
+				
+			hr
+			div.row.text-center.box-bottom Copyright &copy 2018 BISWAJIT SAHA All rights reserved.
+								

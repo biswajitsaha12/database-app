@@ -1,0 +1,76 @@
+doctype html
+html
+	link(rel="stylesheet" href="/bootstrap.min.css")
+	link(rel="stylesheet" href="/app.css" type="text/css" )
+	link(rel="stylesheet" href="/jquery.dataTables.min.css" type="text/css")
+	link(rel="stylesheet" href="/buttons.dataTables.min.css" type="text/css")
+
+
+	script(src="/jquery.min.js")
+	script(src= "/bootstrap.min.js")
+	script(src="/ui-nav.js")
+	script(src="/ui-load.js")
+	script(src="/ui-jp.config.js")
+	script(src="/ui-jp.js")
+	script(src="/ui-toggle.js")
+	script(src="ui-client.js")
+	script(src="/jquery-1.12.4.js")
+	script(src="/jquery.dataTables.min.js")
+	script(src="/dataTables.buttons.min.js")
+	script(src="/buttons.flash.min.js")
+	script(src="/jszip.min.js")
+	script(src="js/pdfmake.min.js")
+	script(src="/vfs_fonts.js")
+	script(src="/buttons.html5.min.js")
+	script(src="/buttons.print.min.js")
+	script(type="text/javascript" src="/schoolsummary.js")
+	body
+		div.container-fluid
+			include header.pug
+			
+			div.row.pug(style="height:600px" )
+				include leftbar.pug
+				div.col-sm-10(style="background-color: #f0f3f4;height:100%")
+					div.row
+						div.col-sm-12(style="border-bottom: 1px solid #dee5e7;margin-left:0px;background-color:#F0F8FF;") 
+							h3(style="padding-top:5px;margin-top:0px") Customer Summary
+					div.row(style="margin:20px ;padding:10px;height:500px")
+						div.row(style="background-color:red ")
+							div.col-sm-12
+								h4 Customer list
+						div.row(style="background-color:white ;padding:20px")
+							
+								table(id="schoollist" class="display nowrap" cellspacing="0" width="100%")
+										thead
+											tr
+												th S.No.
+												th Customer Name
+												th Address
+												th Descriptions
+												th Contact
+												th Email 
+												th Delete
+												th Update
+										
+										tbody
+											
+												each val in customerData 
+													tr
+														
+															td 1
+															td #{val.name}
+															td #{val.address}
+															td #{val.customer_description}             
+															td #{val.mobile}
+															td #{val.email}
+															
+															td 
+																form(action="/delete"  method="post")
+																	input(type="hidden" name='delete' value=val.id )
+																	button(type="submit" name="submit" value="submit") Delete
+															td 
+																form(action="/update"  method="post")
+																	input(type="hidden" name='update' value=val.id )
+																	a(href="update")
+																		button(type="submit" name="submit" ) Update
+					include footer.pug	

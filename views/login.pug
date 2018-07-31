@@ -1,0 +1,35 @@
+doctype html
+
+html
+	head 
+		link(href='/bootstrap.min.css', rel='stylesheet')
+		link(href='/app.css', rel='stylesheet')
+		
+		
+		body
+		
+		div.container.box-top
+			div.row.text-center
+				h1.l-title TEST APP
+				i(style="color: red")=err
+				form.login(action="/loginform"  method="post")
+					div.form-group
+						label(for="username")
+							input.form-control#username(type="email"  placeholder="Username or Email" name="email" required)
+					div.form-group
+						label(for="password")
+							input.form-control#password(type="password"  placeholder=" Password" name="password" required)
+					button.btn.btn-primary.btn-login(type="submit") Login
+				div.l-pass
+					a(href="reset") Forgot Password?
+					
+					
+		div.container.box-mid
+			div.row.text-center Don't have an account?&nbsp
+				a(href="signup") Sign Up
+				
+				
+		hr
+		div.row.text-center.-bottom Copyright &copy 2018 BISWAJIT SAHA All rights reserved.
+								
+								

@@ -1,0 +1,96 @@
+doctype html
+html
+	link(rel="stylesheet" href="/bootstrap.min.css")
+	link(rel="stylesheet" href="/app.css" type="text/css" )
+	link(rel="stylesheet" href="/jquery.dataTables.min.css" type="text/css")
+	link(rel="stylesheet" href="/buttons.dataTables.min.css" type="text/css")
+	script(src="/jquery.min.js")
+	script(src= "/bootstrap.min.js")
+	script(src="/ui-nav.js")
+	script(src="/ui-load.js")
+	script(src="/ui-jp.config.js")
+	script(src="/ui-jp.js")
+	script(src="/ui-toggle.js")
+	script(src="ui-client.js")
+	script(src="/jquery-1.12.4.js")
+	script(src="/jquery.dataTables.min.js")
+	script(src="/dataTables.buttons.min.js")
+	script(src="/buttons.flash.min.js")
+	script(src="/jszip.min.js")
+	script(src="js/pdfmake.min.js")
+	script(src="/vfs_fonts.js")
+	script(src="/buttons.html5.min.js")
+	script(src="/buttons.print.min.js")
+	script(type="text/javascript" src="/schoolsummary.js")
+
+	body
+		div.container-fluid
+			include header.pug
+			
+			div.row.pug(style="height:600px" )
+				include leftbar.pug
+				div.col-sm-10(style="background-color: #f0f3f4;height:100%")
+					div.row
+						div.col-sm-12(style="border-bottom: 1px solid #dee5e7;margin-left:0px;background-color:#F0F8FF;") 
+							h3(style="padding-top:5px;margin-top:0px") Product Summary
+					div.row(style="margin:20px ;padding:10px;height:500px")
+						div.row(style="background-color:lightblue ")
+							div.col-sm-12
+								h4 ADD ITEMS  
+						div.row(style="background-color:white ;padding:20px")
+								form.form-inline(action="/additem"  method="post" style="margin:10px" )
+									div.form-group(style="margin:10px")
+										label(for="item_id" ) Item Id:
+											input.form-control(type="text" name='item_id')
+															
+									div.form-group(style="margin:10px")
+										label(for="item_name") Item Name:
+											input.form-control(type="text" name='item_name')
+																			
+									div.form-group(style="margin:10px")
+										label(for="item_price") Item Price:
+											input.form-control(type="text" name='item_price')
+																			
+									button(type="submit" name="submit" value="submit" style="margin:10px") ADD
+						div.row(style="background-color:white ;padding:15px ")
+							div.row(style="background-color:lightblue ;margin-bottom:20px")
+								div.col-sm-12
+								h4(style="margin:10px") ITEM LIST
+							div.row(style="padding:1px")
+								table(id="schoollist" class="display nowrap" cellspacing="0" width="100%;")
+										thead
+											tr
+												th S.No.
+												th Item Id 
+												th Item Name
+												th Item Price IN Rs.
+												th Delete
+												th Update
+										
+											
+										tbody
+											each val in item_Data
+													tr
+															td 1
+															td #{val.item_id}
+															td #{val.item_name}
+															td #{val.item_price}             
+															
+															
+															td 
+																form(action="/itemdelete"  method="post")
+																	input(type="hidden" name='delete' value=val.id )
+																	button(type="submit" name="submit" value="submit") Delete
+															td 
+																form(action="/itemUpdate"  method="post")
+																	input(type="hidden" name='edit_itemId' value=val.id )
+																	input(type="hidden" name='edit_item_Id' value=val.item_id )
+																	input(type="hidden" name='edit_item_name' value=val.item_name )
+																	input(type="hidden" name='edit_item_price' value=val.item_price )
+																	a(href="itemupdate")
+																		button(type="submit" name="submit" value="submit" ) update
+																	
+																					
+																																	        
+																																																															
+					include footer.pug	
